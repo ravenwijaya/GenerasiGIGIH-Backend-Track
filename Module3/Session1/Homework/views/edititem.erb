@@ -1,0 +1,17 @@
+ <html>
+ 
+  <form action="/edit/<%= item.id %>" method="POST">
+    <input type="text" name="name" value= "<%= item.name %>" required>
+    <input type="text"  name="price" value="<%= item.price %>" required><br><br>
+   <label for="category">Category : </label>
+        <% categories.each do | category | %>
+            <input type="checkbox"  name="categoryid[]" value=<%=category.id%> <%= 'checked' if itemcategory.include?(category.id) %>>
+          <label> <%= category.name %></label>
+         <% end %>
+         <br>
+         <br>
+
+   
+    <input type="submit" value="Submit" class="button button1">
+  </form>
+</html>
