@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  </head>
+  <body>
+
+    <div class="navbar"> 
+      <h1 id="logo"><i class="far fa-utensils-alt"></i> FoodList</h1>
+       <a  href="/items/new">Create New Item</a>
+       <a href="hi">Categories</a>
+      <a href="/menus">Menus</a>
+    </div>
+<div class="flex-container">
+  <div class="flex-item-left">   <img src="/pic.jpg" class="flex-img" alt="" /></div>
+  <div class="flex-item-right">
+  <h1 class="item-name"><%= item.name %></h1> 
+  <p class="recipe-metadata">
+				<span class="recipe-rating">★★★★<span>☆</span></span>
+				<span class="recipe-votes">(12 votes)</span>
+			</p>
+  <% listcategories.split(",").each do |category|%>
+                    <span class="tag"><%= category%></span>
+  <% end %>
+ 
+  <h2>Rp<%= item.price %></h2>
+  </div>
+</div>
+    <footer>
+    <svg class="footer__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+      <div class="grid-container">
+        <div class="grid-item"><i class="far fa-shipping-fast"></i><br><span>Fastest Delivery</span></div>
+        <div class="grid-item"><i class="fal fa-salad"></i><span><br>Quality Foods</span></div>
+        <div class="grid-item"><i class="fal fa-hat-chef"></i><br><span>Original Recipes</span></div>
+      </div>
+    </footer>
+  </body>
+</html>
