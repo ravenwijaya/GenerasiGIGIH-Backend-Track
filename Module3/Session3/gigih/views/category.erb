@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1 id="logo"><i class="far fa-utensils-alt"></i> FoodList</h1>
+      <a class="navbar-a" href="/category/new">Create New Category</a> 
+      <a class="active navbar-a" href="/category">Categories</a>
+      <a class="navbar-a" href="/menus">Menus</a>
+    </div>
+
+   <form class="form" action="/category" method="POST">
+   <div class="flex-containerb" style="color:white;">
+      <%# <label class="checkboxinput" for="category">Category : </label> %>
+      
+      <% categoriesonly.each do | category | %>
+      <div >
+        <input class="input-filter"type="checkbox"  name="categoryid[]" value=<%=category.id%> <%= 'checked' if itemcategory.include?(category.id) %> onchange="this.form.submit()">
+        <label class="card__tagline tag"> <%= category.name %> 
+        <a class="btn-category" href="category/delete/<%= category.id%>"><i class="fas fa-times"></i></a>
+        <a class="btn-category" href="category/<%= category.id%>/edit"><i class="fas fa-pencil-alt"></i></a>
+        </label>
+        </div>
+      <% end %>
+     
+      </div>
+    </form>
+  
+    
+    <% categories.each do |category|%>
+    
+    <h1 class="categorytitle" ><span><%=category.name%></span></h1>
+  
+    
+    <ul class="cards" >
+       <%category.item.each do |item| %>
+        <li>
+          <div class="card">
+            <img src="/pic.jpg" class="card__image" alt="" />
+            <div class="card__overlay">
+              <div class="card__header">
+                <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+                <div class="card__header-text">
+                  <h3 class="card__title"><%= item.name %></h3>
+                  
+                  <% item.category.each do |category|%>
+                    <span class="card__tagline tag"><%= category.name %></span>
+                  <% end %>
+                  <br>
+                  <br>
+                  <span class="card__status">Rp <%= item.price %></span>
+                  <a class="btn show" href="/items/<%= item.id %>" >Show</a>
+                  <a class="btn edit " href="/items/<%= item.id%>/edit" >Edit</a>
+                  <a class="btn delete" href="/delete/<%= item.id%>">Delete</a>
+                </div>
+              </div>
+              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis? </p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <%end%>
+    <footer>
+    <svg class="footer__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+      <div class="grid-container">
+        <div class="grid-item"><i class="far fa-shipping-fast"></i><br><span>Fastest Delivery</span></div>
+        <div class="grid-item"><i class="fal fa-salad"></i><span><br>Quality Foods</span></div>
+        <div class="grid-item"><i class="fal fa-hat-chef"></i><br><span>Original Recipes</span></div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

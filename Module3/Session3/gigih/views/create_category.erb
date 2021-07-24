@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  </head>
+  <body>
+
+    <div class="navbar"> 
+      <h1 id="logo"><i class="far fa-utensils-alt"></i> FoodList</h1>
+       <a class="active" href="/items/new">Create New Category</a>
+       <a href="/category">Category</a>
+      <a href="/menus">Menus</a>
+    </div>
+ 
+    <form class="form" action="/category/create" method="POST">
+    <input type="text" class="input category" placeholder="Name" name="name">
+    <br>
+    <button type="submit">Add Category </button>
+    </form>
+    <footer>
+    <svg class="footer__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+      <div class="grid-container">
+        <div class="grid-item"><i class="far fa-shipping-fast"></i><br><span>Fastest Delivery</span></div>
+        <div class="grid-item"><i class="fal fa-salad"></i><span><br>Quality Foods</span></div>
+        <div class="grid-item"><i class="fal fa-hat-chef"></i><br><span>Original Recipes</span></div>
+      </div>
+    </footer>
+  </body>
+</html>
